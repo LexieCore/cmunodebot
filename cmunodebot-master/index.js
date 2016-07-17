@@ -12,6 +12,9 @@ var ReadData = require('./readData.js');
 //ReadData.readData()
 
 
+
+
+
 console.log("Carl id: " + ids.carlId);
 console.log("Alej id: " + ids.alejId);
 
