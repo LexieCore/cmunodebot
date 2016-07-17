@@ -12,7 +12,11 @@ var ReadData = require('./readData.js');
 //ReadData.readData()
 
 
+
 console.log("Carl id: " + ids.carlId);
+setInterval(function(){
+  console.log('test');
+}, 3 * 1 * 1000); 
 console.log("Alej id: " + ids.alejId);
 
 app.use(bodyParser.urlencoded({extended: false}));

@@ -13,7 +13,8 @@ var ReadData = require('./readData.js');
 
 
 
-
+var hostname = os.hostname();
+console.log("verga"+hostname)
 
 console.log("Carl id: " + ids.carlId);
 console.log("Alej id: " + ids.alejId);
