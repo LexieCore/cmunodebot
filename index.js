@@ -429,7 +429,7 @@ function batteryImageMessage(recipientId, text) {
             "image_url": "http://messengerdemo.parseapp.com/img/rift.png",
             "buttons": [{
               "type": "web_url",
-              "url": "https://www.oculus.com/en-us/rift/",
+              "url": imageUrl.toString(),
               "title": "Open Web URL"
             }, {
               "type": "postback",
