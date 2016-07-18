@@ -18,3 +18,13 @@ exports.texts = function(){
 
 
 }
+
+
+exports.linkes = function(){
+
+  var contents = fs.readFileSync("links.json");
+  var jsonContent = JSON.parse(contents);
+  return jsonContent;
+
+
+}

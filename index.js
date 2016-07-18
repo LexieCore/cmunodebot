@@ -12,6 +12,11 @@ var Data = require('./getData.js');
 //ReadData.readData()
 
 //console.log("Carl id: " + ids.carlId);
+
+
+var linkes = Data.linkes();
+
+
 setInterval(function(){
   console.log('test');
 }, 3 * 1 * 1000);
@@ -35,12 +40,7 @@ app.get('/webhook', function (req, res) {
 });
 // handler receiving messages
 app.post('/webhook', function (req, res) {
-    var events = req.body.entry[0].messaging;
-    for (i = 0; i < events.length; i++) {
-        var event = events[i];
-        if (event.message && event.message.text) {
-            if (!kittenMessage(event.sender.id, event.message.text)){
-                mapMessage(event.sender.id, event.message.text);
+    var events = req.body.entry[0].mess.id, event.message.text);
                 volunteerMessage(event.sender.id, event.message.tex);
                 greetingsMessage(event.sender.id, event.message.text);
                 batteryTextMessage(event.sender.id, event.message.text);
@@ -182,20 +182,18 @@ function kittenMessage(recipientId, text) {
 
 
 function volunteerMessage(recipientId, text) {
-    text = text || "";
-    text = text.toLowerCase();
-    var values = text.split(' ');
-    if (values[0] === 'volunteer') {
-      var youAre = "You are volunteer ";
-      var blueImageUrl = "https://scontent.xx.fbcdn.net/v/t1.0-9/13533270_10154272438778535_6610747476267727156_n.jpg?oh=2e6fad4cc86cc96781636a1488847e7b&oe=57FCED30";
-      var redImageUrl = "https://scontent.xx.fbcdn.net/v/t1.0-9/13510940_10154272438783535_3809594659337214943_n.jpg?oh=b5d74bbe3c4dcde1ec137bd9ad8bb702&oe=57F1DC9B";
-      var pinkImageUrl = "https://scontent.xx.fbcdn.net/v/t1.0-9/13439091_10154272438828535_2387518102360378023_n.jpg?oh=70b18523768bbaaf8ca7b8aabada79a7&oe=58005170";
-      if(values[1] === 'one' || values[1] === '1'){
-        var imageUrl = pinkImageUrl;
-      }else if (values[1] === 'two' || values[1] === '2'){
-          var imageUrl = blueImageUrl;
-      }else if (values[1] === 'three' || values[1] === '3') {
-          var imageUrl = redImageUrl;
+      linkes = linkes.placingBeaconsLinks
+      text = text || "";
+      text = text.toLowerCase();
+      var values = text.split(' ');
+      if (values[0] === 'volunteer') {
+        var youAre = "You are volunteer ";
+        if(values[1] === 'one' || values[1] === '1'){
+            var imageUrl = linkes.pinkImage;
+        }else if (values[1] === 'two' || values[1] === '2'){
+            var imageUrl = linkes.blueImage;
+        }else if (values[1] === 'three' || values[1] === '3') {
+            var imageUrl = linkes.redImage;
       }
             message = {
                 "attachment": {
@@ -360,14 +358,79 @@ function managerMessage(recipientId, text) {
 
 
 
+
+
 function batteryTextMessage(recipientId, text) {
-    text = text || "";
     var message = Data.texts().batteryMaintenance;
+    text = text || "";
     text = text.toLowerCase();
     var values = text.split(' ');
     if (values[0] === 'battery') {
             setTimeout(function(){sendMessage(recipientId, {text: message.batteryMaintenance1 });}, 2000);
             setTimeout(function(){sendMessage(recipientId, {text: message.batteryMaintenance2 });}, 2000);
+            return true;
+    }
+    return false;
+};
+
+function batteryImageMessage(recipientId, text) {
+    lnks = linkes.batteryManagementLinks
+    text = text || "";
+    text = text.toLowerCase();
+    var values = text.split(' ');
+    if (values[0] === 'batteries') {
+      var youAre = "You are volunteer ";
+      var sideImageUrl = lnks.batterySides
+      var explodeImageUrl = lnks.batterExplode
+      var nailImageUrl = lnks.batteryNail
+      var imageUrl = lnks.batteryNail
+
+      message = {
+          "attachment": {
+              "type": "template",
+              "payload": {
+                  "template_type": "generic",
+                  "elements": [{
+                      "title": "Work Map",
+                      "subtitle": youAre + values[1] + ", your tasks today are part of beacon management.",
+                      "image_url": imageUrl ,
+                      "buttons": [{
+                          "type": "web_url",
+                          "url": imageUrl,
+                          "title": "Show Image"
+                          }]
+                  },{,
+                  image_url: explodeImageUrl,
+                  buttons: [{
+                    type: "web_url",
+                    url: explodeImageUrl,
+                    title: "Show Image"
+                  }]
+                },
+                {
+                title: "help two",
+                subtitle: "The best way to open a beacon",
+                image_url: nailImageUrl,
+                buttons: [{
+                  type: "web_url",
+                  url: nailImageUrl,
+                  title: "Show Image"
+                }]
+              },
+              {
+              title: "help three",
+              subtitle: "The sides of the battery",
+              image_url: sideImageUrl,
+              buttons: [{
+                type: "web_url",
+                url: sideImageUrl,
+                title: "Show Image"
+              }]
+            }]
+              }
+          }
+      };
+            sendMessage(recipientId, message);
             return true;
     }
     return false;
