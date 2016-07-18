@@ -365,12 +365,14 @@ function batteryTextMessage(recipientId, text) {
     text = text.toLowerCase();
     var values = text.split(' ');
     if (values[0] === 'battery') {
-            sendMessage(recipientId, {text: message.batteryMaintenance1 });
+
             setTimeout(function(){
-                console.log("THIS IS");
+                sendMessage(recipientId, {text: message.batteryMaintenance1 });
             }, 2000);
-            
-            sendMessage(recipientId, {text: message.batteryMaintenance2 });
+            setTimeout(function(){
+                sendMessage(recipientId, {text: message.batteryMaintenance2 });
+            }, 2000);
+
             return true;
     }
     return false;
