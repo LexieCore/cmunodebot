@@ -7,52 +7,7 @@ var Ids = require('./botIds.js');
 var ids = new Ids();
 var Helpers = require('./helper.js');
 var ReadData = require('./readData.js');
-
-
-
-
-
-
-
-
-
-
-
-
-
 var Data = require('./getData.js');
-const batteryMessage = Data.texts().batteryLevel;////afuera si funciona
-
-
-//console.log(batteryMessage)
-///dentro de una funcion no
-
-
-sayHelloInSpanish = function() {
-
-  console.log(batteryMessage)
-
-};
-
-sayHelloInSpanish();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //Helpers.helloConsole();
 //ReadData.readData()
 
@@ -62,10 +17,6 @@ setInterval(function(){
 }, 3 * 1 * 1000);
 
 console.log("Alej id: " + ids.alejId);
-
-
-
-
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
@@ -410,12 +361,12 @@ function managerMessage(recipientId, text) {
 
 function batteryTextMessage(recipientId, text) {
     text = text || "";
-
+    var message = Data.texts().batteryMaintenance;
     text = text.toLowerCase();
     var values = text.split(' ');
     if (values[0] === 'battery') {
             sendMessage(recipientId, {text: "asdfghj" });
-            sendMessage(recipientId, {text: batteryMessage + "asdfghj" });
+            sendMessage(recipientId, {text: message.batteryMaintenance1 });
             return true;
     }
     return false;
