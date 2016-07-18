@@ -22,7 +22,7 @@ console.log("Alej id: " + ids.alejId);
 
 
 
-const batteryMessage = Data.texts().batteryLevel
+//const batteryMessage = Data.texts().batteryLevel
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
@@ -222,12 +222,14 @@ function batteryImageMessage(recipientId, text) {
 };
 
 
+
+
 function batteryTextMessage(recipientId, text) {
     text = text || "";
     text = text.toLowerCase();
     var values = text.split(' ');
     if (values[0] === 'battery') {
-            sendMessage(recipientId, {text: Data.texts().batteryLevel});
+            sendMessage(recipientId, {text: "Data.texts().batteryLevel"});
             return true;
     }
     return false;
