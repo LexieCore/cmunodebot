@@ -13,7 +13,7 @@ var Data = require('./getData.js');
 
 
 
-var linkes = Data.linkes();
+
 
 
 
@@ -151,6 +151,10 @@ function mapMessage(recipientId, text){
        }
      return false;
 };
+
+
+
+
 // send rich message with kitten
 function kittenMessage(recipientId, text) {
     text = text || "";
@@ -385,18 +389,22 @@ function batteryTextMessage(recipientId, text) {
     return false;
 };
 
+var linkes = Data.linkes();
+
+
+console.log(linkes.batteryManagementLinks.batteryNail)
 
 function batteryImageMessage(recipientId, text) {
-    lnks = linkes.batteryManagementLinks
+    lnks = linkes.batteryManagementLinks;
     text = text || "";
     text = text.toLowerCase();
     var values = text.split(' ');
     if (values[0] === 'batteries') {
       var youAre = "You are volunteer ";
-      var sideImageUrl = lnks.batterySides
-      var explodeImageUrl = lnks.batterExplode
-      var nailImageUrl = lnks.batteryNail
-      var imageUrl = lnks.batteryNail
+      var sideImageUrl = lnks.batterySides;
+      var explodeImageUrl = lnks.batteryExplode;
+      var nailImageUrl = lnks.batteryNail;
+      var imageUrl = lnks.batteryNail;
 
 
       message = {
