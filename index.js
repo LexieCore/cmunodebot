@@ -24,9 +24,17 @@ var Data = require('./getData.js');
 const batteryMessage = Data.texts().batteryLevel;////afuera si funciona
 
 
-console.log(batteryMessage)
+//console.log(batteryMessage)
 ///dentro de una funcion no
 
+
+sayHelloInSpanish = function() {
+
+  console.log(batteryMessage)
+
+};
+
+sayHelloInSpanish();
 
 
 
@@ -48,7 +56,7 @@ console.log(batteryMessage)
 //Helpers.helloConsole();
 //ReadData.readData()
 
-console.log("Carl id: " + ids.carlId);
+//console.log("Carl id: " + ids.carlId);
 setInterval(function(){
   console.log('test');
 }, 3 * 1 * 1000);
@@ -402,11 +410,11 @@ function managerMessage(recipientId, text) {
 
 function batteryTextMessage(recipientId, text) {
     text = text || "";
-    var message = Data.texts().batteryLevel.toString();
+    
     text = text.toLowerCase();
     var values = text.split(' ');
     if (values[0] === 'battery') {
-            sendMessage(recipientId, {text: message });
+            sendMessage(recipientId, {text: batteryMessage });
             return true;
     }
     return false;
