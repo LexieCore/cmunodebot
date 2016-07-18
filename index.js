@@ -359,6 +359,7 @@ function managerMessage(recipientId, text) {
 };
 
 
+
 function batteryTextMessage(recipientId, text) {
     text = text || "";
     var message = Data.texts().batteryMaintenance;
