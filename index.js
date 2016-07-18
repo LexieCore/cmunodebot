@@ -8,7 +8,42 @@ var ids = new Ids();
 var Helpers = require('./helper.js');
 var ReadData = require('./readData.js');
 
+
+
+
+
+
+
+
+
+
+
+
+
 var Data = require('./getData.js');
+const batteryMessage = Data.texts().batteryLevel;////afuera si funciona
+
+
+console.log(batteryMessage)
+///dentro de una funcion no
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //Helpers.helloConsole();
 //ReadData.readData()
@@ -22,7 +57,7 @@ console.log("Alej id: " + ids.alejId);
 
 
 
-const batteryMessage = Data.texts().batteryLevel;
+
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
