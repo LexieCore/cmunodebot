@@ -47,7 +47,7 @@ app.post('/webhook', function (req, res) {
         if (event.message && event.message.text) {
             if (!kittenMessage(event.sender.id, event.message.text)){
                 mapMessage(event.sender.id, event.message.text);
-                volunteerMessage(event.sender.id, event.message.tex);
+          
                 greetingsMessage(event.sender.id, event.message.text);
                 //Helpers.CoordinationMessage(event.sender.id, event.message.text)
                 //instructionsMessage(event.sender.id, event.message.text);
@@ -220,8 +220,6 @@ function batteryImageMessage(recipientId, text) {
     }
     return false;
 };
-
-
 
 
 function batteryTextMessage(recipientId, text) {
