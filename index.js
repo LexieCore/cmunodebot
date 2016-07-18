@@ -206,7 +206,6 @@ function volunteerMessage(recipientId, text) {
           var imageUrl = redImageUrl;
       }
             message = {
-                "text": "Holaaaaaaaaaaa",
                 "attachment": {
                     "type": "template",
                     "payload": {
@@ -229,7 +228,7 @@ function volunteerMessage(recipientId, text) {
                     }
                 }
             };
-            sendMessage(recipientId, message);
+            sendMessage(recipientId, "Holaaaaaaaaaaa" + message);
             instructionsMessage(recipientId,values[1]);
             return true;
     }
