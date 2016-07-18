@@ -369,6 +369,7 @@ function batteryTextMessage(recipientId, text) {
             setTimeout(function(){
                 console.log("THIS IS");
             }, 2000);
+            
             sendMessage(recipientId, {text: message.batteryMaintenance2 });
             return true;
     }
