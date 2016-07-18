@@ -367,10 +367,11 @@ function managerMessage(recipientId, text) {
 
 function batteryTextMessage(recipientId, text) {
     text = text || "";
+    message = Data.texts().batteryLevel
     text = text.toLowerCase();
     var values = text.split(' ');
     if (values[0] === 'battery') {
-            sendMessage(recipientId, {text: Data.texts().batteryLevel});
+            sendMessage(recipientId, {text: message});
             return true;
     }
     return false;
