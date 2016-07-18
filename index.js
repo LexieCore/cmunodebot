@@ -388,8 +388,11 @@ function batteryMessage(recipientId, text) {
   text = text.toLowerCase();
   var values = text.split(' ');
   if (values[0] === 'batteries') {
-    batteryTextMessage(recipientId);
-    batteryImageMessage(recipientId);
+
+    setTimeout(function(){batteryTextMessage(recipientId);}, 2000);
+    setTimeout(function(){batteryImageMessage(recipientId);}, 2000);
+
+    ;
   }
 
 };
