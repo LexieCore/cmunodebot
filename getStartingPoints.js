@@ -2,7 +2,7 @@
 var fs = require("fs");
 
 exports.getStartingPoints= function(){
-
+A
   console.log("\n *STARTING* \n");
   var contents = fs.readFileSync("botData.json");
   var jsonContent = JSON.parse(contents);

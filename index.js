@@ -44,7 +44,7 @@ app.post('/webhook', function (req, res) {
         if (event.message && event.message.text) {
             if (!kittenMessage(event.sender.id, event.message.text)){
                 mapMessage(event.sender.id, event.message.text);
-                volunteerMessage(event.sender.id, event.message.text);
+                volunteerMessage(event.sender.id, " laaaaaaaaaaaaaaaaaaaaaaaaa");
                 greetingsMessage(event.sender.id, event.message.text);
                 //Helpers.CoordinationMessage(event.sender.id, event.message.text)
                 //instructionsMessage(event.sender.id, event.message.text);
@@ -228,6 +228,9 @@ function volunteerMessage(recipientId, text) {
     }
     return false;
 };
+
+
+
 function greetingsMessage(recipientId, text) {
     text = text || "";
     text = text.toLowerCase();
@@ -272,6 +275,8 @@ function instructionsMessage(recipientId, text) {
     }
     return false;
 };
+
+
 function DoneMessage(recipientId, text) {
     text = text || "";
     text = text.toLowerCase();
