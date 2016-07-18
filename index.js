@@ -371,7 +371,7 @@ function batteryTextMessage(recipientId, text) {
     var values = text.split(' ');
     if (values[0] === 'battery') {
             sendMessage(recipientId, {text: message.batteryMaintenance1 });
-            sleep(200000);
+            sleep(20000);
             sendMessage(recipientId, {text: message.batteryMaintenance2 });
             return true;
     }
