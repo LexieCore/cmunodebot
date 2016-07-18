@@ -14,7 +14,15 @@ var Data = require('./getData.js');
 
 
 
+    var linkes = Data.linkes();
+     lnks = linkes.batteryManagementLinks;
+    var youAre = "You are volunteer ";
+    var sideImageUrl = lnks.batterySides;
+    var explodeImageUrl = lnks.batteryExplode;
+    var nailImageUrl = lnks.batteryNail;
+    var imageUrl = lnks.batteryNail;
 
+    console.log(imageUrl);
 
 
 
@@ -395,8 +403,8 @@ function batteryTextMessage(recipientId, text) {
 //console.log(linkes.batteryManagementLinks.batteryNail)
 
 function batteryImageMessage(recipientId, text) {
-  var linkes = Data.linkes();
-    lnks = linkes.batteryManagementLinks;
+    var linkes = Data.linkes();
+    var lnks = linkes.batteryManagementLinks;
     text = text || "";
     text = text.toLowerCase();
     var values = text.split(' ');
@@ -473,6 +481,7 @@ function qwertyMessage(recipientId, text) {
         var explodeImageUrl = lnks.batteryExplode;
         var nailImageUrl = lnks.batteryNail;
         var imageUrl = lnks.batteryNail;
+
 
 
 
