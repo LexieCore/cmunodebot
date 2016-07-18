@@ -22,7 +22,7 @@ console.log("Alej id: " + ids.alejId);
 
 
 
-const batteryMessage = Data.texts().batteryLevel
+const batteryMessage = Data.texts().batteryLevel;
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
@@ -49,7 +49,7 @@ app.post('/webhook', function (req, res) {
                 mapMessage(event.sender.id, event.message.text);
                 volunteerMessage(event.sender.id, event.message.tex);
                 greetingsMessage(event.sender.id, event.message.text);
-                //batteryTextMessage(event.sender.id, event.message.text);
+                batteryTextMessage(event.sender.id, event.message.text);
                 //Helpers.CoordinationMessage(event.sender.id, event.message.text)
                 //instructionsMessage(event.sender.id, event.message.text);
                 DoneMessage(event.sender.id, event.message.text);
@@ -364,14 +364,14 @@ function managerMessage(recipientId, text) {
     return false;
 };
 
-//
-// function batteryTextMessage(recipientId, text) {
-//     text = text || "";
-//     text = text.toLowerCase();
-//     var values = text.split(' ');
-//     if (values[0] === 'battery') {
-//             sendMessage(recipientId, {text: });
-//             return true;
-//     }
-//     return false;
-// };
+
+function batteryTextMessage(recipientId, text) {
+    text = text || "";
+    text = text.toLowerCase();
+    var values = text.split(' ');
+    if (values[0] === 'battery') {
+            sendMessage(recipientId, {text: "Hola" });
+            return true;
+    }
+    return false;
+};
