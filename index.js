@@ -22,7 +22,7 @@ console.log("Alej id: " + ids.alejId);
 
 
 
-
+const batteryMessage = Data.texts().batteryLevel
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
@@ -364,15 +364,15 @@ function managerMessage(recipientId, text) {
     return false;
 };
 
-var batteryMessage = Data.texts().batteryLevel;
 
 function batteryTextMessage(recipientId, text) {
     text = text || "";
 
+    console.log(message)
     text = text.toLowerCase();
     var values = text.split(' ');
     if (values[0] === 'battery') {
-            sendMessage(recipientId, {text : Data.texts().batteryLevel });
+            sendMessage(recipientId, {text : "hola" });
             return true;
     }
     return false;
