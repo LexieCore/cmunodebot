@@ -22,7 +22,7 @@ console.log("Alej id: " + ids.alejId);
 
 
 
-var batteryMessage = Data.texts().batteryLevel
+
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
@@ -364,7 +364,9 @@ function managerMessage(recipientId, text) {
     return false;
 };
 
+const batteryMessage = Data.texts().batteryLevel;
 
+console.log(batteryMessage)
 function batteryTextMessage(recipientId, text) {
     text = text || "";
 
