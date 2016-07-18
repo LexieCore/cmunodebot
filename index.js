@@ -365,15 +365,10 @@ function batteryTextMessage(recipientId, text) {
     text = text.toLowerCase();
     var values = text.split(' ');
     if (values[0] === 'battery') {
-            sendMessage(recipientId, {text: message.batteryMaintenance1 });
-            setInterval(function(){
-              console.log('test');
-            }, 3 * 1 * 1000);
-            sendMessage(recipientId, {text: message.batteryMaintenance2 });
-            setInterval(function(){
-              console.log('test');
-            }, 3 * 1 * 1000);
-            sendMessage(recipientId, {text: message.batteryMaintenance3 });
+            setInterval( sendMessage(recipientId, {text: message.batteryMaintenance1 });, 3 * 1 * 1000);
+            setInterval( sendMessage(recipientId, {text: message.batteryMaintenance2 });, 3 * 1 * 1000);
+            setInterval( sendMessage(recipientId, {text: message.batteryMaintenance3 });, 3 * 1 * 1000);
+
             return true;
     }
     return false;
