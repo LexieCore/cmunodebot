@@ -366,7 +366,6 @@ function batteryTextMessage(recipientId, text) {
     var values = text.split(' ');
     if (values[0] === 'battery') {
             sendMessage(recipientId, {text: message.batteryMaintenance1 });
-            functionToRunFirst();
               setTimeout(function() {
                 sendMessage(recipientId, {text: message.batteryMaintenance2 });
 
