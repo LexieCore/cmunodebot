@@ -369,8 +369,8 @@ function batteryTextMessage(recipientId, text) {
             functionToRunFirst();
               setTimeout(function() {
                 sendMessage(recipientId, {text: message.batteryMaintenance2 });
-                sendMessage(recipientId, {text: message.batteryMaintenance3 });
-            }, 2000);
+                
+            }, 20000);
 
             return true;
     }
