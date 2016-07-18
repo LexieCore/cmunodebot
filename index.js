@@ -255,42 +255,10 @@ function instructionsMessage(recipientId, text) {
       var messagethree = "";
       var messagefour = "";
             if(text === 'three' || text === '3'){
-              //three red// send rich message with kitten
-function kittenMessage(recipientId, text) {
-    text = text || "";
-    text = text.toLowerCase();
-    var values = text.split(' ');
-    if (values.length === 3 && values[0] === 'kitten') {
-        if (Number(values[1]) > 0 && Number(values[2]) > 0) {
-            var imageUrl = "https://placekitten.com/" + Number(values[1]) + "/" + Number(values[2]);
-            message = {
-                "attachment": {
-                    "type": "template",
-                    "payload": {
-                        "template_type": "generic",
-                        "elements": [{
-                            "title": "The Kitten",
-                            "subtitle": "Epic kitten picture",
-                            "image_url": imageUrl ,
-                            "buttons": [{
-                                "type": "web_url",
-                                "url": imageUrl,
-                                "title": "Show kitten"
-                                }, {
-                                "type": "postback",
-                                "title": "I like this " + recipientId,
-                                "payload": "User " + recipientId + " likes kitten " + imageUrl,
-                            }]
-                        }]
-                    }
-                }
-            };
-            sendMessage(recipientId, message);
-            return true;
-        }
-    }
-    return false;
-};){
+              //three red
+              var message = "You will be placing beacons.\n Place a beacon where you see a red square on your map as high as you can and always on the wall.";
+            }
+            else if(text === 'two' || text === '2'){
             //two blue
           var message = "You will be placing beacons.\n Place a beacon where you see a blue square on your map as high as you can and always on the wall.";
             }
