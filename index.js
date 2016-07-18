@@ -7,7 +7,8 @@ var Ids = require('./botIds.js');
 var ids = new Ids();
 var Helpers = require('./helper.js');
 var ReadData = require('./readData.js');
-var BotData = require('./getStartingPoints.js');
+
+var Data = require('./getData.js');
 
 //Helpers.helloConsole();
 //ReadData.readData()
@@ -16,10 +17,12 @@ console.log("Carl id: " + ids.carlId);
 setInterval(function(){
   console.log('test');
 }, 3 * 1 * 1000);
+
 console.log("Alej id: " + ids.alejId);
 
-BotData.getStartingPoints()
 
+
+const batteryMessage = Data.texts().batteryLevel
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
@@ -44,7 +47,7 @@ app.post('/webhook', function (req, res) {
         if (event.message && event.message.text) {
             if (!kittenMessage(event.sender.id, event.message.text)){
                 mapMessage(event.sender.id, event.message.text);
-                volunteerMessage(event.sender.id, " laaaaaaaaaaaaaaaaaaaaaaaaa");
+                volunteerMessage(event.sender.id, event.message.tex);
                 greetingsMessage(event.sender.id, event.message.text);
                 //Helpers.CoordinationMessage(event.sender.id, event.message.text)
                 //instructionsMessage(event.sender.id, event.message.text);
@@ -183,6 +186,9 @@ function kittenMessage(recipientId, text) {
     return false;
 };
 
+
+
+
 function volunteerMessage(recipientId, text) {
     text = text || "";
     text = text.toLowerCase();
@@ -202,6 +208,7 @@ function volunteerMessage(recipientId, text) {
             message = {
                 "attachment": {
                     "type": "template",
+                    "text": "Holaaaaaaaaaaa",
                     "payload": {
                         "template_type": "generic",
                         "elements": [{
