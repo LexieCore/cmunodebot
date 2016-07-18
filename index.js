@@ -358,11 +358,6 @@ function managerMessage(recipientId, text) {
     return false;
 };
 
-function sleep(microseconds) {
-    var request = new XMLHttpRequest();
-    request.open("GET", "sleep.php?time=" + microseconds, false);
-    request.send();
-}
 
 function batteryTextMessage(recipientId, text) {
     text = text || "";
@@ -371,7 +366,9 @@ function batteryTextMessage(recipientId, text) {
     var values = text.split(' ');
     if (values[0] === 'battery') {
             sendMessage(recipientId, {text: message.batteryMaintenance1 });
-            sleep(20000);
+            setTimeout(function(){
+                console.log("THIS IS");
+            }, 2000);
             sendMessage(recipientId, {text: message.batteryMaintenance2 });
             return true;
     }
