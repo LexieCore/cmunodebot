@@ -389,6 +389,7 @@ function batteryImageMessage(recipientId, text) {
       var nailImageUrl = lnks.batteryNail
       var imageUrl = lnks.batteryNail
 
+
       message = {
           "attachment": {
               "type": "template",
@@ -396,14 +397,14 @@ function batteryImageMessage(recipientId, text) {
                   "template_type": "generic",
                   "elements": [{
                       "title": "Work Map",
-                      "subtitle": youAre + values[1] + ", your tasks today are part of beacon management.",
+                      "subtitle": youAre  + ", your tasks today are part of beacon management.",
                       "image_url": imageUrl ,
                       "buttons": [{
                           "type": "web_url",
                           "url": imageUrl,
                           "title": "Show Image"
                           }]
-                  },{,
+                  },{
                   image_url: explodeImageUrl,
                   buttons: [{
                     type: "web_url",
