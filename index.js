@@ -414,6 +414,7 @@ function batteryTextMessage(recipientId, text) {
     text = text.toLowerCase();
     var values = text.split(' ');
     if (values[0] === 'battery') {
+            sendMessage(recipientId, {text: "asdfghj" });
             sendMessage(recipientId, {text: batteryMessage + "asdfghj" });
             return true;
     }
