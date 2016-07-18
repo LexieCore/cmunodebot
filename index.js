@@ -11,6 +11,15 @@ var Data = require('./getData.js');
 //Helpers.helloConsole();
 //ReadData.readData()
 
+
+
+var linkes = Data.linkes();
+
+
+
+
+
+
 //console.log("Carl id: " + ids.carlId);
 setInterval(function(){
   console.log('test');
