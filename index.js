@@ -7,17 +7,19 @@ var Ids = require('./botIds.js');
 var ids = new Ids();
 var Helpers = require('./helper.js');
 var ReadData = require('./readData.js');
+var BotData = require('./getStartingPoints.js');
 
 //Helpers.helloConsole();
 //ReadData.readData()
-
-
 
 console.log("Carl id: " + ids.carlId);
 setInterval(function(){
   console.log('test');
 }, 3 * 1 * 1000);
 console.log("Alej id: " + ids.alejId);
+
+BotData.getStartingPoints()
+
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
