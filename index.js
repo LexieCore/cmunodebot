@@ -381,67 +381,33 @@ function managerMessage(recipientId, text) {
 };
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function batteryMessage(recipientId, text) {
-  batteryTextMessage(recipientId, text);
-  batteryImageMessage(recipientId, text);
+  text = text || "";
+  text = text.toLowerCase();
+  var values = text.split(' ');
+  if (values[0] === 'batteries') {
+    batteryTextMessage(recipientId);
+    batteryImageMessage(recipientId);
+  }
 
 };
 
-
-
-
-function batteryTextMessage(recipientId, text) {
+function batteryTextMessage(recipientId) {
     var message = Data.texts().batteryMaintenance;
-    text = text || "";
-    text = text.toLowerCase();
-    var values = text.split(' ');
-    if (values[0] === 'battery') {
-            setTimeout(function(){sendMessage(recipientId, {text: message.batteryMaintenance1 });}, 2000);
-            setTimeout(function(){sendMessage(recipientId, {text: message.batteryMaintenance2 });}, 2000);
-            return true;
-    }
-    return false;
+    setTimeout(function(){sendMessage(recipientId, {text: message.batteryMaintenance1 });}, 2000);
+    setTimeout(function(){sendMessage(recipientId, {text: message.batteryMaintenance2 });}, 2000);
 };
-
-
-
 
 //console.log(linkes.batteryManagementLinks.batteryNail)
 
-function batteryImageMessage(recipientId, text) {
+function batteryImageMessage(recipientId) {
     var linkes = Data.linkes();
     var lnks = linkes.batteryManagementLinks;
-    text = text || "";
-    text = text.toLowerCase();
-    var values = text.split(' ');
-    if (values[0] === 'batteries') {
-      var youAre = "You are volunteer ";
-      var sideImageUrl = lnks.batterySides;
-      var explodeImageUrl = lnks.batteryExplode;
-      var nailImageUrl = lnks.batteryNail;
-      var imageUrl = lnks.batteryNail;
-
-
+    var youAre = "You are volunteer ";
+    var sideImageUrl = lnks.batterySides;
+    var explodeImageUrl = lnks.batteryExplode;
+    var nailImageUrl = lnks.batteryNail;
+    var imageUrl = lnks.batteryNail;
 
       message = {
         "attachment": {
@@ -482,8 +448,6 @@ function batteryImageMessage(recipientId, text) {
 
       };
 
-            sendMessage(recipientId, message);
-            return true;
-    }
-    return false;
+    sendMessage(recipientId, message);
+
 };
