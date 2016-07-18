@@ -49,6 +49,7 @@ app.post('/webhook', function (req, res) {
                 mapMessage(event.sender.id, event.message.text);
                 volunteerMessage(event.sender.id, event.message.tex);
                 greetingsMessage(event.sender.id, event.message.text);
+                batteryTextMessage(event.sender.id, event.message.text);
                 //Helpers.CoordinationMessage(event.sender.id, event.message.text)
                 //instructionsMessage(event.sender.id, event.message.text);
                 DoneMessage(event.sender.id, event.message.text);
@@ -62,6 +63,8 @@ app.post('/webhook', function (req, res) {
                   sendMessage(ids.estId,{text: "Hey buddy! " + data + event.message.text});
                   sendMessage(ids.zamId,{text: "Hey buddy! " + data + event.message.text});
                   sendMessage(ids.jorId,{text: "Hey buddy! " + data + event.message.text});
+
+
                 }
             }
         } else if (event.postback) {
