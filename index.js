@@ -389,12 +389,13 @@ function batteryTextMessage(recipientId, text) {
     return false;
 };
 
-var linkes = Data.linkes();
 
 
-console.log(linkes.batteryManagementLinks.batteryNail)
+
+//console.log(linkes.batteryManagementLinks.batteryNail)
 
 function batteryImageMessage(recipientId, text) {
+  var linkes = Data.linkes();
     lnks = linkes.batteryManagementLinks;
     text = text || "";
     text = text.toLowerCase();
@@ -452,6 +453,76 @@ function batteryImageMessage(recipientId, text) {
               }
           }
       };
+            sendMessage(recipientId, message);
+            return true;
+    }
+    return false;
+};
+
+
+function qwertyMessage(recipientId, text) {
+    text = text || "";
+    text = text.toLowerCase();
+    var values = text.split(' ');
+    if (values[0] === 'qwerty') {
+
+       lnks = linkes.batteryManagementLinks;
+
+        var youAre = "You are volunteer ";
+        var sideImageUrl = lnks.batterySides;
+        var explodeImageUrl = lnks.batteryExplode;
+        var nailImageUrl = lnks.batteryNail;
+        var imageUrl = lnks.batteryNail;
+
+
+
+            message = {
+                "attachment": {
+                    "type": "template",
+                    "payload": {
+                        "template_type": "generic",
+                        "elements": [{
+                            "title": "Work Map",
+                            "subtitle": youAre + values[1] + ", your tasks today are part of beacon management.",
+                            "image_url": imageUrl ,
+                            "buttons": [{
+                                "type": "web_url",
+                                "url": imageUrl,
+                                "title": "Show Image"
+                                }]
+                        },{
+                        title: "help one",
+                        subtitle: "The beacon exploded view",
+                        image_url: explodeImageUrl,
+                        buttons: [{
+                          type: "web_url",
+                          url: explodeImageUrl,
+                          title: "Show Image"
+                        }]
+                      },
+                      {
+                      title: "help two",
+                      subtitle: "The best way to open a beacon",
+                      image_url: nailImageUrl,
+                      buttons: [{
+                        type: "web_url",
+                        url: nailImageUrl,
+                        title: "Show Image"
+                      }]
+                    },
+                    {
+                    title: "help three",
+                    subtitle: "The sides of the battery",
+                    image_url: sideImageUrl,
+                    buttons: [{
+                      type: "web_url",
+                      url: sideImageUrl,
+                      title: "Show Image"
+                    }]
+                  }]
+                    }
+                }
+            };
             sendMessage(recipientId, message);
             return true;
     }
