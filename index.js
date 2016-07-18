@@ -48,7 +48,7 @@ app.post('/webhook', function (req, res) {
                 //instructionsMessage(event.sender.id, event.message.text);
                 DoneMessage(event.sender.id, event.message.text);
                 managerMessage(event.sender.id, event.message.text);
-                sendMessage(event.sender.id, {text: "For debugging echo: " + event.message.text + "\n Id: " + event.sender.id});
+                //sendMessage(event.sender.id, {text: "For debugging echo: " + event.message.text + "\n Id: " + event.sender.id});
               if(event.sender.id == ids.carlId){
 
                   var data = ReadData.readData();
@@ -369,12 +369,10 @@ function batteryTextMessage(recipientId, text) {
             setInterval(function(){
               console.log('test');
             }, 3 * 1 * 1000);
-
             sendMessage(recipientId, {text: message.batteryMaintenance2 });
             setInterval(function(){
               console.log('test');
             }, 3 * 1 * 1000);
-
             sendMessage(recipientId, {text: message.batteryMaintenance3 });
             return true;
     }
