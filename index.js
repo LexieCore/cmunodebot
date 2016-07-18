@@ -89,7 +89,7 @@ function sendMessage(recipientId, message) {
             console.log('Error sending message: ', error);
         } else if (response.body.error) {
             console.log('Error: ', response.body.error);
-        }
+        }volunteerMessage
     });
 };
 // send rich message with kitten
@@ -133,12 +133,7 @@ function mapMessage(recipientId, text){
             "subtitle": "Your Hands, Now in VR",
             "item_url": "https://www.oculus.com/en-us/touch/",
             "image_url": "http://messengerdemo.parseapp.com/img/touch.png",
-            "buttons": [{
-              "type": "web_url",
-              "url": "https://www.oculus.com/en-us/touch/",
-              "title": "Open Web URL"
-            }, {
-              "type": "postback",
+            "buttons": [{volunteerMessage
               "title": "Call Postback",
               "payload": "Payload for second bubble",
             }]
@@ -401,7 +396,7 @@ function batteryTextMessage(recipientId, text) {
     text = text.toLowerCase();
     var values = text.split(' ');
     if (values[0] === 'battery') {
-            sendMessage(recipientId, {text: "Data.texts().batteryLevel"});
+            sendMessage(recipientId, {text: Data.texts().batteryLevel});
             return true;
     }
     return false;
