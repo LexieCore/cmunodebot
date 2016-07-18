@@ -42,9 +42,6 @@ app.get('/webhook', function (req, res) {
 // handler receiving messages
 app.post('/webhook', function (req, res) {
     var events = req.body.entry[0].messaging;
-    var batteryMessage = Data.texts().batteryLevel;
-
-
     for (i = 0; i < events.length; i++) {
         var event = events[i];
         if (event.message && event.message.text) {
@@ -367,6 +364,7 @@ function managerMessage(recipientId, text) {
     return false;
 };
 
+var batteryMessage = Data.texts().batteryLevel;
 
 function batteryTextMessage(recipientId, text) {
     text = text || "";
@@ -374,7 +372,7 @@ function batteryTextMessage(recipientId, text) {
     text = text.toLowerCase();
     var values = text.split(' ');
     if (values[0] === 'battery') {
-            sendMessage(recipientId, {text : batteryMessage });
+            sendMessage(recipientId, {text : Data.texts().batteryLevel });
             return true;
     }
     return false;
