@@ -22,7 +22,7 @@ console.log("Alej id: " + ids.alejId);
 
 
 
-//const batteryMessage = Data.texts().batteryLevel
+const batteryMessage = Data.texts().batteryLevel
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
@@ -47,7 +47,7 @@ app.post('/webhook', function (req, res) {
         if (event.message && event.message.text) {
             if (!kittenMessage(event.sender.id, event.message.text)){
                 mapMessage(event.sender.id, event.message.text);
-          
+                volunteerMessage(event.sender.id, event.message.tex);
                 greetingsMessage(event.sender.id, event.message.text);
                 //Helpers.CoordinationMessage(event.sender.id, event.message.text)
                 //instructionsMessage(event.sender.id, event.message.text);
@@ -149,33 +149,47 @@ function mapMessage(recipientId, text){
        }
      return false;
 };
+// send rich message with kitten
+function kittenMessage(recipientId, text) {
+    text = text || "";
+    text = text.toLowerCase();
+    var values = text.split(' ');
+    if (values.length === 3 && values[0] === 'kitten') {
+        if (Number(values[1]) > 0 && Number(values[2]) > 0) {
+            var imageUrl = "https://placekitten.com/" + Number(values[1]) + "/" + Number(values[2]);
+            message = {
+                "attachment": {
+                    "type": "template",
+                    "payload": {
+                        "template_type": "generic",
+                        "elements": [{
+                            "title": "The Kitten",
+                            "subtitle": "Epic kitten picture",
+                            "image_url": imageUrl ,
+                            "buttons": [{
+                                "type": "web_url",
+                                "url": imageUrl,
+                                "title": "Show kitten"
+                                }, {
+                                "type": "postback",
+                                "title": "I like this " + recipientId,
+                                "payload": "User " + recipientId + " likes kitten " + imageUrl,
+                            }]
+                        }]
+                    }
+                }
+            };
+            sendMessage(recipientId, message);
+            return true;
+        }
+    }
+    return false;
+};
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function batteryImageMessage(recipientId, text) {
+function volunteerMessage(recipientId, text) {
     text = text || "";
     text = text.toLowerCase();
     var values = text.split(' ');
@@ -220,73 +234,6 @@ function batteryImageMessage(recipientId, text) {
     }
     return false;
 };
-
-
-function batteryTextMessage(recipientId, text) {
-    text = text || "";
-    text = text.toLowerCase();
-    var values = text.split(' ');
-    if (values[0] === 'battery') {
-            sendMessage(recipientId, {text: "Data.texts().batteryLevel"});
-            return true;
-    }
-    return false;
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
