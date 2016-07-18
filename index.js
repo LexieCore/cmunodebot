@@ -22,7 +22,7 @@ console.log("Alej id: " + ids.alejId);
 
 
 
-const batteryMessage = Data.texts().batteryLevel
+var batteryMessage = Data.texts().batteryLevel
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
