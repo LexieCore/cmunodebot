@@ -389,10 +389,10 @@ function batteryMessage(recipientId, text) {
   var values = text.split(' ');
   if (values[0] === 'batteries') {
 
-    setTimeout(function(){batteryTextMessage(recipientId);}, 2000);
+    setTimeout(function(){batteryTextMessage(recipientId);}, 4000);
     setTimeout(function(){batteryImageMessage(recipientId);}, 2000);
 
-    ;
+
   }
 
 };
