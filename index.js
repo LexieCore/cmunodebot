@@ -397,22 +397,3 @@ function managerMessage(recipientId, text) {
     }
     return false;
 };
-
-
-
-
-
-
-
-
-
-function batteryTextMessage(recipientId, text) {
-    text = text || "";
-    text = text.toLowerCase();
-    var values = text.split(' ');
-    if (values[0] === 'battery') {
-            sendMessage(recipientId, {text: "Data.texts().batteryLevel"});
-            return true;
-    }
-    return false;
-};
