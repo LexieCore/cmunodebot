@@ -453,7 +453,7 @@ function batteryImageMessage(recipientId, text) {
           }]
         }
       }
-    }
+
       };
 
             sendMessage(recipientId, message);
