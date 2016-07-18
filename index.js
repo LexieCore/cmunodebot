@@ -133,7 +133,7 @@ function mapMessage(recipientId, text){
             "subtitle": "Your Hands, Now in VR",
             "item_url": "https://www.oculus.com/en-us/touch/",
             "image_url": "http://messengerdemo.parseapp.com/img/touch.png",
-            "buttons": [{volunteerMessage
+            "buttons": [{
               "title": "Call Postback",
               "payload": "Payload for second bubble",
             }]
@@ -363,32 +363,6 @@ function managerMessage(recipientId, text) {
     }
     return false;
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 function batteryTextMessage(recipientId, text) {
