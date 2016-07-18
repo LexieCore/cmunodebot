@@ -416,52 +416,31 @@ function batteryImageMessage(recipientId, text) {
       var imageUrl = lnks.batteryNail;
 
 
+
       message = {
           "attachment": {
               "type": "template",
               "payload": {
                   "template_type": "generic",
                   "elements": [{
-                      "title": "Work Map",
-                      "subtitle": youAre  + ", your tasks today are part of beacon management.",
+                      "title": "The Kitten",
+                      "subtitle": "Epic kitten picture",
                       "image_url": imageUrl ,
                       "buttons": [{
                           "type": "web_url",
                           "url": imageUrl,
-                          "title": "Show Image"
-                          }]
-                  },{
-                  image_url: explodeImageUrl,
-                  buttons: [{
-                    type: "web_url",
-                    url: explodeImageUrl,
-                    title: "Show Image"
+                          "title": "Show kitten"
+                          }, {
+                          "type": "postback",
+                          "title": "I like this " + recipientId,
+                          "payload": "User " + recipientId + " likes kitten " + imageUrl,
+                      }]
                   }]
-                },
-                {
-                title: "help two",
-                subtitle: "The best way to open a beacon",
-                image_url: nailImageUrl,
-                buttons: [{
-                  type: "web_url",
-                  url: nailImageUrl,
-                  title: "Show Image"
-                }]
-              },
-              {
-              title: "help three",
-              subtitle: "The sides of the battery",
-              image_url: sideImageUrl,
-              buttons: [{
-                type: "web_url",
-                url: sideImageUrl,
-                title: "Show Image"
-              }]
-            }]
               }
           }
       };
-            sendMessage(recipientId, {text: "message"});
+
+            sendMessage(recipientId, message);
             return true;
     }
     return false;
