@@ -60,8 +60,8 @@ app.post('/webhook', function (req, res) {
                 mapMessage(event.sender.id, event.message.text);
                 volunteerMessage(event.sender.id, event.message.tex);
                 greetingsMessage(event.sender.id, event.message.text);
-                batteryTextMessage(event.sender.id, event.message.text);
-                batteryImageMessage(event.sender.id, event.message.text);
+                batteryMessage(event.sender.id, event.message.text);
+
                 //Helpers.CoordinationMessage(event.sender.id, event.message.text)
                 //instructionsMessage(event.sender.id, event.message.text);
                 DoneMessage(event.sender.id, event.message.text);
@@ -384,6 +384,32 @@ function managerMessage(recipientId, text) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function batteryMessage(recipientId, text) {
+  batteryTextMessage(recipientId, text);
+  batteryImageMessage(recipientId, text);
+
+};
+
+
+
+
 function batteryTextMessage(recipientId, text) {
     var message = Data.texts().batteryMaintenance;
     text = text || "";
@@ -456,77 +482,6 @@ function batteryImageMessage(recipientId, text) {
 
       };
 
-            sendMessage(recipientId, message);
-            return true;
-    }
-    return false;
-};
-
-
-function qwertyMessage(recipientId, text) {
-    text = text || "";
-    text = text.toLowerCase();
-    var values = text.split(' ');
-    if (values[0] === 'qwerty') {
-
-       lnks = linkes.batteryManagementLinks;
-
-        var youAre = "You are volunteer ";
-        var sideImageUrl = lnks.batterySides;
-        var explodeImageUrl = lnks.batteryExplode;
-        var nailImageUrl = lnks.batteryNail;
-        var imageUrl = lnks.batteryNail;
-
-
-
-
-            message = {
-                "attachment": {
-                    "type": "template",
-                    "payload": {
-                        "template_type": "generic",
-                        "elements": [{
-                            "title": "Work Map",
-                            "subtitle": youAre + values[1] + ", your tasks today are part of beacon management.",
-                            "image_url": imageUrl ,
-                            "buttons": [{
-                                "type": "web_url",
-                                "url": imageUrl,
-                                "title": "Show Image"
-                                }]
-                        },{
-                        title: "help one",
-                        subtitle: "The beacon exploded view",
-                        image_url: explodeImageUrl,
-                        buttons: [{
-                          type: "web_url",
-                          url: explodeImageUrl,
-                          title: "Show Image"
-                        }]
-                      },
-                      {
-                      title: "help two",
-                      subtitle: "The best way to open a beacon",
-                      image_url: nailImageUrl,
-                      buttons: [{
-                        type: "web_url",
-                        url: nailImageUrl,
-                        title: "Show Image"
-                      }]
-                    },
-                    {
-                    title: "help three",
-                    subtitle: "The sides of the battery",
-                    image_url: sideImageUrl,
-                    buttons: [{
-                      type: "web_url",
-                      url: sideImageUrl,
-                      title: "Show Image"
-                    }]
-                  }]
-                    }
-                }
-            };
             sendMessage(recipientId, message);
             return true;
     }
