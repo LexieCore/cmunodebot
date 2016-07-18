@@ -206,9 +206,9 @@ function volunteerMessage(recipientId, text) {
           var imageUrl = redImageUrl;
       }
             message = {
+                "text": "Holaaaaaaaaaaa",
                 "attachment": {
                     "type": "template",
-                    "text": "Holaaaaaaaaaaa",
                     "payload": {
                         "template_type": "generic",
                         "elements": [{
