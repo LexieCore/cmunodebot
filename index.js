@@ -403,6 +403,9 @@ function batteryTextMessage(recipientId) {
     setTimeout(function(){sendMessage(recipientId, {text: message.batteryMaintenance2 });}, 2000);
 };
 
+
+
+
 //console.log(linkes.batteryManagementLinks.batteryNail)
 
 function batteryImageMessage(recipientId) {
