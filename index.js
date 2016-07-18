@@ -425,8 +425,8 @@ function batteryImageMessage(recipientId, text) {
           "elements": [{
             "title": "rift",
             "subtitle": "Next-generation virtual reality",
-            "item_url": "https://www.oculus.com/en-us/rift/",
-            "image_url": "http://messengerdemo.parseapp.com/img/rift.png",
+            "item_url": nailImageUrl,
+            "image_url": nailImageUrl,
             "buttons": [{
               "type": "web_url",
               "url": imageUrl.toString(),
@@ -439,11 +439,11 @@ function batteryImageMessage(recipientId, text) {
           }, {
             "title": "touch",
             "subtitle": "Your Hands, Now in VR",
-            "item_url": "https://www.oculus.com/en-us/touch/",
-            "image_url": "http://messengerdemo.parseapp.com/img/touch.png",
+            "item_url": sideImageUrl,
+            "image_url": sideImageUrl,
             "buttons": [{
               "type": "web_url",
-              "url": "https://www.oculus.com/en-us/touch/",
+              "url": sideImageUrl,
               "title": "Open Web URL"
             }, {
               "type": "postback",
